@@ -80,12 +80,7 @@ def rename_tables():
 
     ImageHandle is passed in rcx, SystemTable is passed in rdx.
     """
-    regs = {}
-    regs['im'] = ['rcx']
-    regs['st'] = ['rdx']
-    regs['bs'] = []
-    regs['rs'] = []
-
+    regs = {'im': ['rcx'], 'st': ['rdx'], 'bs': [], 'rs': []}
     entry = GetEntryOrdinal(0)
 
     rename_tables_internal(entry, regs)
@@ -339,4 +334,4 @@ def reg_from_displ(displ):
 
 
 def underscore_to_global(name):
-    return 'g'+''.join(list(s.capitalize() for s in name.lower().split('_')))
+    return 'g' + ''.join([s.capitalize() for s in name.lower().split('_')])

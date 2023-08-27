@@ -72,8 +72,7 @@ class TEImage:
 
 		# read section table
 		self.sections = []
-		for i in range(0, self.num_sections):
-			self.sections.append(TEImageSection(f))
+		self.sections.extend(TEImageSection(f) for _ in range(0, self.num_sections))
 
 
 class TEImageSection:
